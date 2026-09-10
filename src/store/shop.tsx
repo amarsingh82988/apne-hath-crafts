@@ -72,9 +72,10 @@ export function ShopProvider({ children }: { children: ReactNode }) {
           );
           if (i === -1) return [...prev, line];
           const next = [...prev];
+          const existing = next[i]!;
           const product = products.find((p) => p.id === line.productId);
           const max = product?.stock ?? 99;
-          next[i] = { ...next[i], qty: Math.min(next[i].qty + line.qty, max) };
+          next[i] = { ...existing, qty: Math.min(existing.qty + line.qty, max) };
           return next;
         }),
       updateQty: (index, qty) =>
