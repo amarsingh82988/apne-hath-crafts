@@ -49,7 +49,7 @@ function ProductPage() {
   const related = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);
 
   const add = () => {
-    addToCart({ productId: product.id, qty, color, size, note: note.trim() || undefined });
+    addToCart({ productId: product.id, qty, color, size, note: note.trim() });
     toast.success("Added to your cart ♡");
   };
 
