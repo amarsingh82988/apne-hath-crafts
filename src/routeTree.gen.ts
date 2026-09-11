@@ -13,10 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CategoriesRouteImport } from './routes/categories'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomOrdersRouteImport } from './routes/custom-orders'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as OrderConfirmationRouteImport } from './routes/order-confirmation'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ReturnPolicyRouteImport } from './routes/return-policy'
 import { Route as SearchRouteImport } from './routes/search'
@@ -48,6 +50,11 @@ const CategoriesRoute = CategoriesRouteImport.update({
   path: '/categories',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -66,6 +73,11 @@ const FaqRoute = FaqRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderConfirmationRoute = OrderConfirmationRouteImport.update({
+  id: '/order-confirmation',
+  path: '/order-confirmation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -124,10 +136,12 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/categories': typeof CategoriesRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faq': typeof FaqRoute
   '/login': typeof LoginRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/return-policy': typeof ReturnPolicyRoute
   '/search': typeof SearchRoute
@@ -144,10 +158,12 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/categories': typeof CategoriesRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faq': typeof FaqRoute
   '/login': typeof LoginRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/return-policy': typeof ReturnPolicyRoute
   '/search': typeof SearchRoute
@@ -165,10 +181,12 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/categories': typeof CategoriesRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faq': typeof FaqRoute
   '/login': typeof LoginRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/return-policy': typeof ReturnPolicyRoute
   '/search': typeof SearchRoute
@@ -187,10 +205,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/cart'
     | '/categories'
+    | '/checkout'
     | '/contact'
     | '/custom-orders'
     | '/faq'
     | '/login'
+    | '/order-confirmation'
     | '/privacy-policy'
     | '/return-policy'
     | '/search'
@@ -207,10 +227,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/cart'
     | '/categories'
+    | '/checkout'
     | '/contact'
     | '/custom-orders'
     | '/faq'
     | '/login'
+    | '/order-confirmation'
     | '/privacy-policy'
     | '/return-policy'
     | '/search'
@@ -227,10 +249,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/cart'
     | '/categories'
+    | '/checkout'
     | '/contact'
     | '/custom-orders'
     | '/faq'
     | '/login'
+    | '/order-confirmation'
     | '/privacy-policy'
     | '/return-policy'
     | '/search'
@@ -248,10 +272,12 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CartRoute: typeof CartRoute
   CategoriesRoute: typeof CategoriesRoute
+  CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   CustomOrdersRoute: typeof CustomOrdersRoute
   FaqRoute: typeof FaqRoute
   LoginRoute: typeof LoginRoute
+  OrderConfirmationRoute: typeof OrderConfirmationRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReturnPolicyRoute: typeof ReturnPolicyRoute
   SearchRoute: typeof SearchRoute
@@ -294,6 +320,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -320,6 +353,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-confirmation': {
+      id: '/order-confirmation'
+      path: '/order-confirmation'
+      fullPath: '/order-confirmation'
+      preLoaderRoute: typeof OrderConfirmationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -400,10 +440,12 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CartRoute: CartRoute,
   CategoriesRoute: CategoriesRoute,
+  CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   CustomOrdersRoute: CustomOrdersRoute,
   FaqRoute: FaqRoute,
   LoginRoute: LoginRoute,
+  OrderConfirmationRoute: OrderConfirmationRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReturnPolicyRoute: ReturnPolicyRoute,
   SearchRoute: SearchRoute,
