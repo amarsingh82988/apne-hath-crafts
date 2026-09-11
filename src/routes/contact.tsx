@@ -35,9 +35,18 @@ function ContactPage() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.name.trim().length < 2) return toast.error("Please tell us your name");
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) return toast.error("Please enter a valid email address");
-    if (form.message.trim().length < 10) return toast.error("Please add a few more details to your message");
+    if (form.name.trim().length < 2) {
+      toast.error("Please tell us your name");
+      return;
+    }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+    if (form.message.trim().length < 10) {
+      toast.error("Please add a few more details to your message");
+      return;
+    }
     setSending(true);
     setTimeout(() => {
       setSending(false);

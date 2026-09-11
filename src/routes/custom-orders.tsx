@@ -62,10 +62,22 @@ function CustomOrdersPage() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.name.trim().length < 2) return toast.error("Please tell us your name");
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) return toast.error("Please enter a valid email address");
-    if (!form.type) return toast.error("Please choose what you'd like made");
-    if (form.details.trim().length < 15) return toast.error("Please describe your idea in a little more detail");
+    if (form.name.trim().length < 2) {
+      toast.error("Please tell us your name");
+      return;
+    }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+    if (!form.type) {
+      toast.error("Please choose what you'd like made");
+      return;
+    }
+    if (form.details.trim().length < 15) {
+      toast.error("Please describe your idea in a little more detail");
+      return;
+    }
     setSending(true);
     setTimeout(() => {
       setSending(false);
