@@ -16,12 +16,14 @@ import { Route as CategoriesRouteImport } from './routes/categories'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomOrdersRouteImport } from './routes/custom-orders'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ReturnPolicyRouteImport } from './routes/return-policy'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TrackOrderRouteImport } from './routes/track-order'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as CategorySlugRouteImport } from './routes/category.$slug'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
@@ -61,6 +63,11 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
@@ -91,6 +98,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackOrderRoute = TrackOrderRouteImport.update({
+  id: '/track-order',
+  path: '/track-order',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
   path: '/wishlist',
@@ -115,12 +127,14 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/return-policy': typeof ReturnPolicyRoute
   '/search': typeof SearchRoute
   '/shipping-policy': typeof ShippingPolicyRoute
   '/shop': typeof ShopRoute
   '/terms': typeof TermsRoute
+  '/track-order': typeof TrackOrderRoute
   '/wishlist': typeof WishlistRoute
   '/category/$slug': typeof CategorySlugRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -133,12 +147,14 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/return-policy': typeof ReturnPolicyRoute
   '/search': typeof SearchRoute
   '/shipping-policy': typeof ShippingPolicyRoute
   '/shop': typeof ShopRoute
   '/terms': typeof TermsRoute
+  '/track-order': typeof TrackOrderRoute
   '/wishlist': typeof WishlistRoute
   '/category/$slug': typeof CategorySlugRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -152,12 +168,14 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/return-policy': typeof ReturnPolicyRoute
   '/search': typeof SearchRoute
   '/shipping-policy': typeof ShippingPolicyRoute
   '/shop': typeof ShopRoute
   '/terms': typeof TermsRoute
+  '/track-order': typeof TrackOrderRoute
   '/wishlist': typeof WishlistRoute
   '/category/$slug': typeof CategorySlugRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -172,12 +190,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-orders'
     | '/faq'
+    | '/login'
     | '/privacy-policy'
     | '/return-policy'
     | '/search'
     | '/shipping-policy'
     | '/shop'
     | '/terms'
+    | '/track-order'
     | '/wishlist'
     | '/category/$slug'
     | '/product/$slug'
@@ -190,12 +210,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-orders'
     | '/faq'
+    | '/login'
     | '/privacy-policy'
     | '/return-policy'
     | '/search'
     | '/shipping-policy'
     | '/shop'
     | '/terms'
+    | '/track-order'
     | '/wishlist'
     | '/category/$slug'
     | '/product/$slug'
@@ -208,12 +230,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-orders'
     | '/faq'
+    | '/login'
     | '/privacy-policy'
     | '/return-policy'
     | '/search'
     | '/shipping-policy'
     | '/shop'
     | '/terms'
+    | '/track-order'
     | '/wishlist'
     | '/category/$slug'
     | '/product/$slug'
@@ -227,12 +251,14 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CustomOrdersRoute: typeof CustomOrdersRoute
   FaqRoute: typeof FaqRoute
+  LoginRoute: typeof LoginRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReturnPolicyRoute: typeof ReturnPolicyRoute
   SearchRoute: typeof SearchRoute
   ShippingPolicyRoute: typeof ShippingPolicyRoute
   ShopRoute: typeof ShopRoute
   TermsRoute: typeof TermsRoute
+  TrackOrderRoute: typeof TrackOrderRoute
   WishlistRoute: typeof WishlistRoute
   CategorySlugRoute: typeof CategorySlugRoute
   ProductSlugRoute: typeof ProductSlugRoute
@@ -289,6 +315,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy-policy': {
       id: '/privacy-policy'
       path: '/privacy-policy'
@@ -331,6 +364,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/track-order': {
+      id: '/track-order'
+      path: '/track-order'
+      fullPath: '/track-order'
+      preLoaderRoute: typeof TrackOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/wishlist': {
       id: '/wishlist'
       path: '/wishlist'
@@ -363,12 +403,14 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CustomOrdersRoute: CustomOrdersRoute,
   FaqRoute: FaqRoute,
+  LoginRoute: LoginRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReturnPolicyRoute: ReturnPolicyRoute,
   SearchRoute: SearchRoute,
   ShippingPolicyRoute: ShippingPolicyRoute,
   ShopRoute: ShopRoute,
   TermsRoute: TermsRoute,
+  TrackOrderRoute: TrackOrderRoute,
   WishlistRoute: WishlistRoute,
   CategorySlugRoute: CategorySlugRoute,
   ProductSlugRoute: ProductSlugRoute,
