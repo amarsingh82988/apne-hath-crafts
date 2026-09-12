@@ -95,7 +95,7 @@ function CheckoutPage() {
           const p = productById(line.productId);
           return {
             ...line,
-            title: p?.title ?? "Handmade piece",
+            title: p?.name ?? "Handmade piece",
             price: p?.price ?? 0,
             image: p?.images[0] ?? "",
           };
@@ -203,9 +203,9 @@ function CheckoutPage() {
               if (!p) return null;
               return (
                 <div key={`${line.productId}-${line.color}-${line.size}`} className="flex gap-3">
-                  <img src={p.images[0]} alt={p.title} className="size-16 rounded-xl object-cover" loading="lazy" />
+                  <img src={p.images[0]} alt={p.name} className="size-16 rounded-xl object-cover" loading="lazy" />
                   <div className="flex-1 text-sm">
-                    <p className="font-medium">{p.title}</p>
+                    <p className="font-medium">{p.name}</p>
                     <p className="text-muted-foreground">
                       Qty {line.qty}
                       {line.color ? ` · ${line.color}` : ""}
